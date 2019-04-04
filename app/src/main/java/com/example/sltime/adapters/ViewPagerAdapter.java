@@ -1,5 +1,7 @@
 package com.example.sltime.adapters;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -7,6 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.sltime.view.BusFragment;
+import com.example.sltime.view.Main2Activity;
 import com.example.sltime.view.PendaltagFragment;
 import com.example.sltime.view.RoutInformationListFragment;
 import com.example.sltime.view.TrainFragment;
@@ -16,36 +19,48 @@ import java.util.List;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
    private final List<Fragment>fragmentList = new ArrayList<>();
-   private final List<String>fragmentContain = new ArrayList<>();
+   private final List<String>tabTitel = new ArrayList<>();
+  // private final List<Integer>image = new ArrayList<>();
+    private Intent intent;
 
-    public ViewPagerAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm, Intent intent) {
+
         super(fm);
+        this.intent=intent;
     }
 
-    public void addFragment(Fragment fm,String contain) {
 
-       fragmentList.add(fm);
-       fragmentContain.add(contain);
+
+
+    public void addFragment(Fragment fm,String contain) {
+        fragmentList.add(fm);
+        tabTitel.add(contain);
+
     }
 
     @Override
     public Fragment getItem(int position) {
-        /*switch(position){
+        String id=intent.getStringExtra("siteid");
+        switch (position) {
             case 0:
                 TrainFragment trainFragment = new TrainFragment();
+              //trainFragment.setArguments(id);
+                trainFragment.setId(id);
+                System.out.println("train");
                 return trainFragment;
             case 1:
                 BusFragment busFragment = new BusFragment();
+                System.out.println("buss");
+                busFragment.setId(id);
                 return busFragment;
             case 2:
                 PendaltagFragment pendaltagFragment = new PendaltagFragment();
+                System.out.println("pendelll");
+                pendaltagFragment.setId(id);
                 return pendaltagFragment;
-               *//* default:
-                    RoutInformationListFragment routInformationListFragment = new RoutInformationListFragment();
-                    return routInformationListFragment;*/
-        return fragmentList.get(position);
 
-
+        }
+ return null;
     }
 
     @Override
@@ -56,10 +71,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-      //  position = position+1;
-
-        //return "Tab"+position;
-        return null;
+        return tabTitel.get(position);
     }
 
 }

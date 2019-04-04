@@ -12,7 +12,6 @@
 
 
     <string name="uppdate">Senast Uppdaterad :</string>
-
     <string name="internetConection">Det finns inget nätverk. Kolla din internetuppkoppling</string>
     <string name="emptyFild">Sökfältet Är tomt..</string>
     <string name="noStop">Hittade inga hållplatser</string>
@@ -30,5 +29,6 @@
     <string name="Bus">Bus</string>
     <string name="Train">Train</string>
     <string name="Pendaltag">Pendaltag</string>
+    <string name="search_your_location">Search Your Location</string>
 
 </resources>

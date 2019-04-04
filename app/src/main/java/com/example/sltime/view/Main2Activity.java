@@ -1,6 +1,7 @@
 package com.example.sltime.view;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -36,55 +37,51 @@ import java.util.Date;
 public class Main2Activity extends AppCompatActivity implements NumberPicker.OnValueChangeListener {
     SwipeRefreshLayout swipeRefreshLayout;
     private final String APIKEY_2 = "c58553c52e3546b3b8e7551ccdbf158d";
-    private JSONObject apiResponseCallB;
-    private ArrayList<String> arrList;
-    private boolean bus, metro,train;
-    private String siteId = null;
-    private RouteInformationAdapter ria;
-    private String apiURl;
     private int searchMin = 5;
-    Calendar calendar = Calendar.getInstance();
-    Date date;
-    Button btnSubway ;
-    Button btnBuss ;
-    Button btnPendel;
-
-    int btnColorActive, btnColorDefault;
-
-private ViewPager viewPager;
-private TabLayout mTabLayout;
-private ViewPagerAdapter viewPagerAdapter;
-
+    private ViewPager viewPager;
+    private TabLayout mTabLayout;
+    private ViewPagerAdapter viewPagerAdapter;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+       //set back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        intent=getIntent();
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),intent);
         mTabLayout = findViewById(R.id.tabs);
         viewPager = findViewById(R.id.container);
         setupViewPager(viewPager);
-
-       TabLayout tabLayout = findViewById(R.id.tabs);
-
-tabLayout.addTab(tabLayout.newTab().setText("bus").setIcon(R.drawable.ic_directions_bus_black_24dp));
-        tabLayout.setupWithViewPager(viewPager);
+        mTabLayout.setupWithViewPager(viewPager);
+        addIcon();
 
 
 
     }
+    //  add fragment to adapter
     private void setupViewPager(ViewPager viewPager){
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(new BusFragment(),"TRAIN");
-        viewPagerAdapter.addFragment(new TrainFragment(),"BUSS");
-        viewPagerAdapter.addFragment(new PendaltagFragment(),".......");
+        viewPagerAdapter.addFragment(new TrainFragment(),"TRAIN");
+        viewPagerAdapter.addFragment(new BusFragment(),"BUSS");
+        viewPagerAdapter.addFragment(new PendaltagFragment(),"PENDALTÅG");
         viewPager.setAdapter(viewPagerAdapter);
     }
 
 
+    //add Icon to the tab
+    private void addIcon(){
+        mTabLayout.getTabAt(0).setIcon(R.drawable.ic_train_black_24dp);
+        mTabLayout.getTabAt(1).setIcon(R.drawable.ic_directions_bus_black_24dp);
+        mTabLayout.getTabAt(2).setIcon(R.drawable.ic_tram_black_24dp);
+    }
+
+
+// create time picker option to choose time duration to find certain transpotation within a given time
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

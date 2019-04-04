@@ -5,53 +5,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".view.FrontAvtivity">
+
     <include layout="@layout/toolbar"
         android:id="@+id/toolbar"/>
 
     <RelativeLayout
-        android:layout_below="@id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="16dp">
 
-        android:layout_centerHorizontal="true">
+
         <ListView
+            android:id="@+id/listViewResult"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:layout_alignParentStart="true"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="150dp" />
 
-            android:id="@+id/listViewResult" />
+
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:focusableInTouchMode="true"
-            android:id="@+id/linearLayout"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="30dp"
-            android:layout_marginLeft="16dp">
+            android:focusableInTouchMode="true">
+
 
             <EditText
                 android:id="@+id/searchLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/myButton"
-                android:maxLength="30"
                 android:ems="10"
-                android:hint="@string/skriv_in_plats"
                 android:focusable="true"
+                android:hint="@string/search_your_location"
                 android:inputType="text"
+                android:maxLength="30"
                 tools:text="Enter Location" />
 
             <Button
                 android:id="@+id/myButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
                 android:text="@string/search"
                 tools:text="Search by City" />
         </LinearLayout>
@@ -60,14 +64,28 @@
             android:id="@+id/lastSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginLeft="18dp"
-
             android:layout_below="@+id/linearLayout"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="16dp" />
 
+            android:layout_marginLeft="18dp"
+            android:layout_marginTop="16dp"
+            android:text="" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="56dp"
+            app:backgroundTint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_comment" />
     </RelativeLayout>
+
 
 
 
