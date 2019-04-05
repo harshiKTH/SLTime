@@ -1,17 +1,13 @@
 package com.example.sltime.adapters;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 
 import com.example.sltime.view.BusFragment;
-import com.example.sltime.view.Main2Activity;
 import com.example.sltime.view.PendaltagFragment;
-import com.example.sltime.view.RoutInformationListFragment;
 import com.example.sltime.view.TrainFragment;
 
 import java.util.ArrayList;

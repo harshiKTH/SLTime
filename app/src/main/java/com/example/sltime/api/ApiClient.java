@@ -66,7 +66,13 @@ public class ApiClient extends AsyncTask {
                     }
                 }
             }
-        return arrList;
+
+            if(arrList.isEmpty()){
+                arrList.add("Det finns inga avgånger inom den angivna tidsramen...." + trasportType);
+
+            }
+            return arrList;
+
 
         }
 

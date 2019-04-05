@@ -13,12 +13,11 @@ public class FrontActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.AppTheme);
         setContentView(R.layout.activity_front);
 
        startButton = findViewById(R.id.lets_go);
 
-       startButton.setOnClickListener(new View.OnClickListener() {
+      startButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
                Intent intent = new Intent(FrontActivity.this,MainActivity.class);

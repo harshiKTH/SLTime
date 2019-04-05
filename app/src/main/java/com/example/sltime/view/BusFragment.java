@@ -25,7 +25,7 @@ import java.util.Iterator;
  */
 public class BusFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     SwipeRefreshLayout swipeRefreshLayout;
-    String id="";
+    String id=" ";
 
     public BusFragment() {
         // Required empty public constructor
@@ -74,10 +74,6 @@ public class BusFragment extends Fragment implements SwipeRefreshLayout.OnRefres
         }
 
         return str;
-
-
-
-
 
     }
 
