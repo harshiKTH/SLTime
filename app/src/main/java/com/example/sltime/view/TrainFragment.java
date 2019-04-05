@@ -23,8 +23,7 @@ import java.util.ArrayList;
  */
 public class TrainFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 SwipeRefreshLayout swipeRefreshLayout;
-TextView textView;
-String id="";
+String id=" ";
     public TrainFragment() {
         // Required empty public constructor
     }
@@ -83,4 +82,5 @@ String id="";
     public void setId(String id) {
         this.id=id;
     }
+
 }
